@@ -15,6 +15,7 @@ RUN --mount=type=cache,target=/var/cache/apk,sharing=locked \
     && fc-cache -fv
 
 RUN pip install --no-cache-dir weasyprint
+RUN curl -sSLf https://gist.github.com/jumanjiman/f9d3db977846c163df12/raw/9c88ada4af1df5fae66474b54b53fc4201e545f0/harden.sh | sh
 
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["weasyprint", "--version"]
